@@ -271,14 +271,7 @@ html,body{overflow-x:clip;overscroll-behavior-x:none}
 </div>
 
 <div style="position: fixed; right: 20px; bottom: calc(20px + env(safe-area-inset-bottom)); z-index: 50; display: flex; flex-direction: column; align-items: flex-end; gap: 12px">
-<div class="swap" id="contact-menu" hidden style="display: flex; flex-direction: column; align-items: flex-end; gap: 10px">
-<a href="https://wa.me/601112322833?text=Hi%20Javenn%2C%20I%27m%20interested%20in%20Ophira.%20Please%20share%20more%20details." style="display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 22px; background: #131A16; color: #ECE6D8; border: 1px solid #C9A45C; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 15px; box-shadow: 0 12px 30px rgba(0,0,0,0.45)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8C987" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>Chat on WhatsApp</a>
-<a href="https://calendar.app.google/HyhGRpuoxRqDrwNz6" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 22px; background: #131A16; color: #ECE6D8; border: 1px solid #C9A45C; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 15px; box-shadow: 0 12px 30px rgba(0,0,0,0.45)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8C987" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>Book a viewing</a>
-</div>
-<button type="button" class="fab" id="contact-btn" aria-expanded="false" aria-controls="contact-menu" style="display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 22px; background: #C9A45C; color: #14110A; border: none; border-radius: 999px; font-family: inherit; font-weight: 700; font-size: 15px; cursor: pointer">
-<span id="contact-open" style="display: inline-flex; align-items: center; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg><span>Book a Viewing</span></span>
-<span id="contact-close" hidden style="align-items: center; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg><span>Close</span></span>
-</button>
+<a href="#price-list" data-open-plf class="fab" id="contact-btn" style="display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 22px; background: #C9A45C; color: #14110A; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 15px; box-shadow: 0 12px 30px rgba(0,0,0,0.45)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="M8 7h8M8 11h2M12 11h2M8 15h2M12 15h2M8 18h8"></path></svg>Check prices</a>
 </div>
 
 <div id="plf" hidden role="dialog" aria-modal="true" aria-labelledby="plf-title" class="lbfade" style="position: fixed; inset: 0; z-index: 120; background: rgba(8, 11, 9, 0.88); display: flex; align-items: flex-end; justify-content: center; padding: 0">
@@ -711,18 +704,6 @@ html,body{overflow-x:clip;overscroll-behavior-x:none}
   new Track('fac', facilities, facCard, { scale: 0.88, orbit: true, cw: 88, maxVh: 0.6, aspect: 1.78 });
   new Track('fp', plans, fpCard, { scale: 0.88, orbit: true, fade: 2.5, cw: 88, maxVh: 0.6, aspect: 1.78 });
 
-  // ---------- contact menu ----------
-  var menu = document.getElementById('contact-menu'), btn = document.getElementById('contact-btn');
-  var openLbl = document.getElementById('contact-open'), closeLbl = document.getElementById('contact-close');
-  function setMenu(open) {
-    menu.hidden = !open;
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    openLbl.style.display = open ? 'none' : 'inline-flex';
-    closeLbl.hidden = !open; closeLbl.style.display = open ? 'inline-flex' : 'none';
-  }
-  btn.addEventListener('click', function () { setMenu(menu.hidden); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.hidden) setMenu(false); });
-  setMenu(false);
 
   // ---------- photos that build themselves from gold particles ----------
   var REDUCE = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
